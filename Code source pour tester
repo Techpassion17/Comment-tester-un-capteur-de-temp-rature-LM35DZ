@@ -1,0 +1,35 @@
+//Déclaration et initialisation des variables
+
+  //Variable mesure, retournée par le capteur
+  float mesure=0;  
+  
+  //Variable tension   
+  float tension=0;   
+  
+  //Variable temperature
+  float temperature=0;   
+  
+  void setup()
+  {
+    //Activation du Serial Monitor
+    Serial.begin(9600);        
+  }
+
+  void loop()
+  {
+    //Lecture de la valeur en provenance du capteur de température
+    mesure = analogRead(A0);  
+    
+    //Conversion de la valeur reçue en tension (Volt)
+    tension = mesure * 5 / 1024; 
+    
+    //Conversion de la tension en température (°C)
+    temperature = tension * 100;    
+    
+    //Affichage de la température dans le Serial Monitor            
+    Serial.print(" La temperature est de :"); 
+    Serial.println (temperature); 
+    
+    //Pause de 1 seconde
+    delay(1000);      
+        
